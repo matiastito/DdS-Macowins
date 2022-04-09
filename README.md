@@ -1,5 +1,9 @@
 # DdS-Macowins
 
+## Pseudocodigo
+
+
+### Cobro
 ```
 class Cobro
   Venta venta
@@ -11,7 +15,9 @@ class Cobro
 	
 	Float importe()
     return venta.importe() + medioDePago.recargo(venta)
-
+```
+### Medio de Pago
+```
 interface MedioDePago
 	Float recargo(Venta venta)
 
@@ -32,7 +38,9 @@ class MedioDePagoTarjeta  implements MedioDePago
 		for (PrendaVendida prendaVendida : venta.prendasVendidas())
 			recargo += 0.01f * prendaVendida.getPrecioVenta()
 		return recargo
-    
+```
+### Estado
+```
 interface Estado
 	Float precio(Prenda camisa)
 
@@ -55,7 +63,9 @@ class Promocion implements Estado
 
 	Float precio(Prenda prenda)
 		return prenda.precioBase() - descuento
-
+```
+### Prenda
+```
 class Prenda	
 	private TipoPrenda tipoPrenda
 	private Float precioBase
@@ -77,7 +87,9 @@ class Prenda
 
 enum TipoPrenda
 	SACO, PANTALON, CAMISA
-
+```
+### Prenda Vendida
+```
 class PrendaVendida
 	Prenda prenda
 	Integer cantidadVendida
@@ -88,19 +100,9 @@ class PrendaVendida
 
 	Float getPrecioVenta()
 		return this.cantidadVendida * this.prenda.precio()
-    
-class PrendaVendida
-
-	Prenda prenda
-	Integer cantidadVendida
-	
-	PrendaVendida(Prenda prenda, Integer cantidadVendida)
-		this.prenda = prenda
-		this.cantidadVendida = cantidadVendida
-
-	Float getPrecioVenta()
-		return this.cantidadVendida * this.prenda.precio()
-	
+```
+### Venta
+```	
 class Venta	
 	Date fechaDeVenta
 	Collection<PrendaVendida> prendasVendidas
@@ -117,7 +119,9 @@ class Venta
 		for (PrendaVendida prendasVendida : prendasVendidas)
 			sumaTotlDePrendasVendidas += prendasVendida.getPrecioVenta()
 		return sumaTotlDePrendasVendidas
-
+```
+### Negocio
+```
 class Negocio	
 	Float coeficientePagoTarjeta
 	Float descuentoEstadoPromocion

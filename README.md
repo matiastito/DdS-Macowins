@@ -1,10 +1,8 @@
 # DdS-Macowins
 
-## Pseudocodigo
-
 ![Macowins](Macowins.png "MacowinsUML")
 
-
+## Pseudocodigo
 ### Cobro
 ```
 class Cobro

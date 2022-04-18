@@ -2,6 +2,8 @@
 
 ## Pseudocodigo
 
+![Macowins](Macowins.png "MacowinsUML")
+
 
 ### Cobro
 ```
